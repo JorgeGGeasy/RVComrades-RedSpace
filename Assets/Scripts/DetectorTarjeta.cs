@@ -21,11 +21,8 @@ namespace Valve.VR.InteractionSystem
 
         public LinearMapping linearMapping;
 
-        public GameObject prefab;
-
-        [SerializeField]
         bool leerTarjeta = false;
-        [SerializeField]
+
         bool tarjetaLeida = false;
         // Start is called before the first frame update
         private void Start()
@@ -53,6 +50,7 @@ namespace Valve.VR.InteractionSystem
             }
             else
             {
+                Debug.Log(linearMapping.value);
                 if(linearMapping.value > 0.9 && tarjetaLeida == false)
                 {
                     Debug.Log("Hola");
@@ -64,9 +62,6 @@ namespace Valve.VR.InteractionSystem
                     tarjetaLinearMap.transform.GetChild(0).gameObject.SetActive(false);
                     tarjetaLeida = true;
                     StartCoroutine(IEPasarTarjetaLector());
-
-                    //Instantiate(prefab, tarjetaLinearMap.transform.position, Quaternion.identity);
-
                 }
             }
 
