@@ -8,6 +8,8 @@ TagManager:
   - projectile
   - Spawnpoint
   - Patata
+  - Luces
+  - Linterna
   layers:
   - Default
   - TransparentFX
