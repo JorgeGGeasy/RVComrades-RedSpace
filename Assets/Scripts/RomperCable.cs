@@ -45,7 +45,7 @@ public class RomperCable : MonoBehaviour
     void OnTriggerEnter(Collider c) 
     {
         if(c.gameObject == objetoParaRomperCables && !roto){
-            Debug.Log("Colision uwu");
+            Debug.Log("Colision");
             roto = true;
 
             // animacion de romper cables
