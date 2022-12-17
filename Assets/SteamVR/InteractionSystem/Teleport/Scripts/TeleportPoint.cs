@@ -29,7 +29,6 @@ namespace Valve.VR.InteractionSystem
 		public Color titleHighlightedColor;
 		public Color titleLockedColor;
 		public bool playerSpawnPoint = false;
-		public Transform posicionInicial;
 
 		//Private data
 		private bool gotReleventComponents = false;
@@ -227,9 +226,6 @@ namespace Valve.VR.InteractionSystem
 			if ( !string.IsNullOrEmpty( switchToScene ) )
 			{
 				Debug.Log("<b>[SteamVR Interaction]</b> TeleportPoint: Hook up your level loading logic to switch to new scene: " + switchToScene, this);
-				UnityEngine.SceneManagement.SceneManager.LoadScene(switchToScene);
-				player.transform.position = posicionInicial.position;
-				player.transform.rotation = posicionInicial.rotation;
 			}
 			else
 			{
