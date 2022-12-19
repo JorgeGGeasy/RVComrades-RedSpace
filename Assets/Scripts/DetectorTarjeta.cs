@@ -19,6 +19,9 @@ namespace Valve.VR.InteractionSystem
         [SerializeField]
         GameObject puerta;
 
+        [SerializeField]
+        Subtitulos subtitulos;
+
         public LinearMapping linearMapping;
 
         bool leerTarjeta = false;
@@ -50,7 +53,6 @@ namespace Valve.VR.InteractionSystem
             }
             else
             {
-                Debug.Log(linearMapping.value);
                 if(linearMapping.value > 0.9 && tarjetaLeida == false)
                 {
                     Debug.Log("Hola");
@@ -74,6 +76,7 @@ namespace Valve.VR.InteractionSystem
                 //audioClipManager.SeleccionarAudio(7, 0.5f);
                 yield return new WaitForSeconds(1f);
                 puerta.GetComponent<Animator>().enabled = false; // parar animacion
+                subtitulos.IniciarSala();
 
             }
         }

@@ -23,6 +23,9 @@ public class RomperCable : MonoBehaviour
     [SerializeField]
     private AudioClipManager audioClipManager;
 
+    [SerializeField]
+    Subtitulos subtitulos;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -87,6 +90,7 @@ public class RomperCable : MonoBehaviour
         puerta.GetComponent<Animator>().Play("Puerta");
         yield return new WaitForSeconds(1f);
         puerta.GetComponent<Animator>().enabled = false; // parar animacion
+        subtitulos.IniciarTaller();
     }
 
     private void parpadearLuces(GameObject[] luces, bool encender){
