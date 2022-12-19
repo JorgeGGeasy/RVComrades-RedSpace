@@ -9,6 +9,9 @@ namespace Valve.VR.InteractionSystem
     public class FinNivel : MonoBehaviour
     {
         [SerializeField]
+        GameObject teleport;
+
+        [SerializeField]
         ColocarPatata patata;
 
         [SerializeField]
@@ -20,7 +23,7 @@ namespace Valve.VR.InteractionSystem
         bool puzle1 = false;
         bool puzle2 = false;
         bool puzle3 = false;
-        bool puzle4 = false;
+        public bool puzle4 = false;
 
         bool nivelCompletado = false;
 
@@ -61,6 +64,11 @@ namespace Valve.VR.InteractionSystem
                     cambiarLuz(2, puzle3);
                 }
 
+                if (puzle4)
+                {
+                    cambiarLuz(3, puzle4);
+                }
+
                 if (puzle1 && puzle2 && puzle3 && puzle4)
                 {
                     // Se permite el teletransporte al modulo lunar
@@ -69,7 +77,7 @@ namespace Valve.VR.InteractionSystem
             }
             else
             {
-                // Activa el tp point a la escena del modulo lunar
+                teleport.SetActive(true);
             }
 
 
