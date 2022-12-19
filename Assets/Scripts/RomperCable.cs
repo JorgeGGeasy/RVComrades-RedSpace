@@ -18,6 +18,11 @@ public class RomperCable : MonoBehaviour
     private GameObject puerta;
 
     private bool roto = false;
+
+
+    [SerializeField]
+    private AudioClipManager audioClipManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -76,6 +81,7 @@ public class RomperCable : MonoBehaviour
 
         // TODO sonido de apagar generador
         apagarLuces(luces,linternas);
+        audioClipManager.SeleccionarAudio(0,0.5f);
 
         // abrir puerta ------------
         puerta.GetComponent<Animator>().Play("Puerta");
