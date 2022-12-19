@@ -12,6 +12,9 @@ public class ColocarPatata : MonoBehaviour
     [SerializeField]
     GameObject patataCaja;
 
+    [SerializeField]
+    private Color colorLuz;
+
     public bool patataColocada = false;
     // Start is called before the first frame update
     void Start()
@@ -33,8 +36,51 @@ public class ColocarPatata : MonoBehaviour
                     patataCaja.gameObject.SetActive(true);
                     hitCollider.gameObject.SetActive(false);
                     patataColocada = true;
+                    StartCoroutine(AnimacionEncenderLuces());
                 }
             }
+        }
+    }
+
+
+     IEnumerator AnimacionEncenderLuces(){
+
+        // ------------------
+        GameObject[] luces =  GameObject.FindGameObjectsWithTag("Luces");
+        GameObject[] linternas =  GameObject.FindGameObjectsWithTag("Linterna");
+        bool boolParpadear = false;
+
+        // TODO sonido de apagar generador
+        encenderLuces(luces,linternas);
+        
+        //parpadear Luces
+        for(int i = 0; i<6; i++){
+            parpadearLuces(luces,boolParpadear);
+            boolParpadear = !boolParpadear;
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        
+
+    }
+
+    private void parpadearLuces(GameObject[] luces, bool encender){
+        
+
+        foreach(GameObject luz in luces){
+            luz.GetComponent<Light>().intensity = encender ? 1.6f : 0.6f;
+        }
+    }
+
+    private void encenderLuces(GameObject[] luces,GameObject[] linternas){
+    
+        foreach(GameObject luz in luces){
+            luz.GetComponent<Light>().intensity = 2.6f;
+            luz.GetComponent<Light>().color = colorLuz;
+        }
+
+        foreach(GameObject linterna in linternas){
+            linterna.GetComponent<Light>().intensity = 0.0f;
         }
     }
 }

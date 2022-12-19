@@ -12078,6 +12078,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radio: 0.2
   patataCaja: {fileID: 254762831}
+  colorLuz: {r: 0.8784314, g: 0.73333335, b: 0.5921569, a: 0}
   patataColocada: 0
 --- !u!1 &1950799709
 GameObject:
@@ -12779,7 +12780,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49c385b23d0417e419e33027db11b6ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objetos: []
+  objetos:
+  - {fileID: 1707514201}
+  - {fileID: 1742508333}
+  - {fileID: 1993538502}
+  - {fileID: 368403975}
+  - {fileID: 524864768}
+  - {fileID: 1502156861}
   materialActivado: {fileID: 2100000, guid: 85fef5693d6f9a04c9e6cfc0fb6e9fa5, type: 2}
   materialDesactivado: {fileID: 2100000, guid: b9e3621c6d7848048bfdc24c7eded06c, type: 2}
   contador: 1
