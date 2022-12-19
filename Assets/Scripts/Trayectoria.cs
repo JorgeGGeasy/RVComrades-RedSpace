@@ -49,7 +49,6 @@ namespace Valve.VR.InteractionSystem
 
             if(primerPuzle && segundoPuzle && tercerPuzle && !completo)
             {
-                final.puzle4 = true;
                 completo = true;
             }
             

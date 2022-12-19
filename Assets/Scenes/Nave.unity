@@ -1729,7 +1729,7 @@ MonoBehaviour:
   posicion: {fileID: 535911707}
   escala: {fileID: 1965949702}
   forma: {fileID: 2019293482}
-  final: {fileID: 687709886}
+  completo: 0
   objetos:
   - {fileID: 35055616}
   - {fileID: 77766984}
@@ -4224,7 +4224,7 @@ MonoBehaviour:
   patata: {fileID: 1908254552}
   linearMappingTarjeta: {fileID: 224793981}
   prepararObjetos: {fileID: 1615501489}
-  puzle4: 0
+  trayectoria: {fileID: 287336059}
   luces:
   - {fileID: 1891464310}
   - {fileID: 1737362498}
