@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Valve.VR.InteractionSystem.Sample
+namespace Valve.VR.InteractionSystem
 {
     public class TamanioObjeto : MonoBehaviour
     {

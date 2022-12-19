@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace Valve.VR.InteractionSystem.Sample
+namespace Valve.VR.InteractionSystem
 {
     public class Trayectoria : MonoBehaviour
     {
@@ -15,13 +15,11 @@ namespace Valve.VR.InteractionSystem.Sample
         LinearMapping escala;
         [SerializeField]
         PulsarBoton forma;
-        [SerializeField]
-        FinNivel final;
 
         bool primerPuzle = false;
         bool segundoPuzle = false;
         bool tercerPuzle = false;
-        bool completo = false;
+        public bool completo = false;
 
         [SerializeField]
         GameObject[] objetos;

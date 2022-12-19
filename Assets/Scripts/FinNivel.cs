@@ -20,10 +20,13 @@ namespace Valve.VR.InteractionSystem
         [SerializeField]
         PrepararObjetos prepararObjetos;
 
+        [SerializeField]
+        Trayectoria trayectoria;
+
         bool puzle1 = false;
         bool puzle2 = false;
         bool puzle3 = false;
-        public bool puzle4 = false;
+        bool puzle4 = false;
 
         bool nivelCompletado = false;
 
@@ -64,8 +67,9 @@ namespace Valve.VR.InteractionSystem
                     cambiarLuz(2, puzle3);
                 }
 
-                if (puzle4)
+                if (trayectoria.completo)
                 {
+                    puzle4 = true;
                     cambiarLuz(3, puzle4);
                 }
 
@@ -73,6 +77,7 @@ namespace Valve.VR.InteractionSystem
                 {
                     // Se permite el teletransporte al modulo lunar
                     Debug.Log("PuzleCompletado");
+                    nivelCompletado = true;
                 }
             }
             else
