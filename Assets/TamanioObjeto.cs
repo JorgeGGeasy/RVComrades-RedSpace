@@ -17,11 +17,11 @@ namespace Valve.VR.InteractionSystem
         // Update is called once per frame
         void Update()
         {
-            if (linearMapping.value < 0.2)
+            if (linearMapping.value < 0.4)
             {
                 gameObject.transform.localScale = new Vector3(0.1f,0.1f,0.1f);
             }
-            else if (linearMapping.value > 0.2 && linearMapping.value < 0.8)
+            else if (linearMapping.value > 0.4 && linearMapping.value < 0.8)
             {
                 gameObject.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
             }

@@ -26,14 +26,14 @@ namespace Valve.VR.InteractionSystem
         public void Update()
         {
             //CuboPequeñoIzquierda
-            if (forma.contador == 1 && posicion.value > 0.9 && escala.value < 0.2 && !primerPuzle)
+            if (forma.contador == 1 && posicion.value > 0.9 && escala.value < 0.4 && !primerPuzle)
             {
                 Debug.Log("CuboPequeño");
                 primerPuzle = true;
                 objetos[0].SetActive(false);
             }
             //CirculoMedianoEnmedio
-            if (forma.contador == 2 && posicion.value > 0.45 && posicion.value < 0.55 && escala.value > 0.2 && escala.value < 0.8 && !segundoPuzle)
+            if (forma.contador == 2 && posicion.value > 0.45 && posicion.value < 0.55 && escala.value > 0.4 && escala.value < 0.8 && !segundoPuzle)
             {
                 Debug.Log("RomboMediano");
                 segundoPuzle = true;
