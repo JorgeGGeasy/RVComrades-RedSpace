@@ -21,6 +21,9 @@ namespace Valve.VR.InteractionSystem
         PrepararObjetos prepararObjetos;
 
         [SerializeField]
+        private AudioClipManager audioClipManager;
+
+        [SerializeField]
         Trayectoria trayectoria;
 
         bool puzle1 = false;
@@ -44,30 +47,37 @@ namespace Valve.VR.InteractionSystem
         {
             if (!nivelCompletado)
             {
-                if (patata.patataColocada)
+                if (patata.patataColocada && !puzle1)
                 {
                     puzle1 = true;
                     cambiarLuz(0, puzle1);
                 }
 
-                if (linearMappingTarjeta.value > 0.9)
+                if (linearMappingTarjeta.value > 0.9 && !puzle2)
                 {
                     puzle2 = true;
                     cambiarLuz(1, puzle2);
+                    if (!audioClipManager.GetComponent<AudioSource>().isPlaying)
+                    {
+                        audioClipManager.SeleccionarAudio(6, 2f);
+                    }
+
+
                 }
-                else
+                else if(linearMappingTarjeta.value < 0.9 && puzle2)
                 {
                     puzle2 = false;
-                    cambiarLuz(1, puzle2);
+                    cambiarLuz(1, puzle2); 
+
                 }
 
-                if (prepararObjetos.objetos)
+                if (prepararObjetos.objetos && !puzle3)
                 {
                     puzle3 = true;
                     cambiarLuz(2, puzle3);
                 }
 
-                if (trayectoria.completo)
+                if (trayectoria.completo && !puzle4)
                 {
                     puzle4 = true;
                     cambiarLuz(3, puzle4);

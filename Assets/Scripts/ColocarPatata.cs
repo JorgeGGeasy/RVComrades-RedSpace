@@ -15,6 +15,12 @@ public class ColocarPatata : MonoBehaviour
     [SerializeField]
     private Color colorLuz;
 
+    [SerializeField]
+    private AudioClipManager audioClipManager;
+
+    [SerializeField]
+    private AudioSource audioClipManagerFondo;
+
     public bool patataColocada = false;
     // Start is called before the first frame update
     void Start()
@@ -51,16 +57,21 @@ public class ColocarPatata : MonoBehaviour
         bool boolParpadear = false;
 
         // TODO sonido de apagar generador
+        // Audio encendiendose motores
+        audioClipManager.SeleccionarAudio(4, 0.1f);
         encenderLuces(luces,linternas);
         
         //parpadear Luces
         for(int i = 0; i<6; i++){
             parpadearLuces(luces,boolParpadear);
             boolParpadear = !boolParpadear;
+            audioClipManager.SeleccionarAudio(3, 0.5f);
             yield return new WaitForSeconds(0.1f);
         }
 
-        
+
+        yield return new WaitForSeconds(4f);
+        audioClipManagerFondo.UnPause();
 
     }
 

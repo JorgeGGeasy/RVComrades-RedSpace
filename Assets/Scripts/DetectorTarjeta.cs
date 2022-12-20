@@ -22,6 +22,9 @@ namespace Valve.VR.InteractionSystem
         [SerializeField]
         Subtitulos subtitulos;
 
+        [SerializeField]
+        private AudioClipManager audioClipManager;
+
         public LinearMapping linearMapping;
 
         bool leerTarjeta = false;
@@ -64,6 +67,7 @@ namespace Valve.VR.InteractionSystem
                     tarjetaLinearMap.transform.GetChild(0).gameObject.SetActive(false);
                     tarjetaLeida = true;
                     StartCoroutine(IEPasarTarjetaLector());
+                    audioClipManager.SeleccionarAudio(1, 0.5f);
                 }
             }
 
@@ -73,7 +77,7 @@ namespace Valve.VR.InteractionSystem
                 materialVerde.color = Color.HSVToRGB(0.35f, 1, 1f);
 
                 puerta.GetComponent<Animator>().Play("Puerta");
-                //audioClipManager.SeleccionarAudio(7, 0.5f);
+                audioClipManager.SeleccionarAudio(2, 0.5f);
                 yield return new WaitForSeconds(1f);
                 puerta.GetComponent<Animator>().enabled = false; // parar animacion
                 subtitulos.IniciarSala();

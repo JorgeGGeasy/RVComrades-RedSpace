@@ -24,6 +24,9 @@ public class RomperCable : MonoBehaviour
     private AudioClipManager audioClipManager;
 
     [SerializeField]
+    private AudioSource audioClipManagerFondo;
+
+    [SerializeField]
     Subtitulos subtitulos;
 
     // Start is called before the first frame update
@@ -72,22 +75,26 @@ public class RomperCable : MonoBehaviour
 
         // romper cables --------------------------------
         romperCables.Play("RomperCablesFusibles");
+        // TODO sonido de apagar generador
+        audioClipManager.SeleccionarAudio(0, 0.2f);
         yield return new WaitForSeconds(1.0f);
-  
+
         
         //parpadear Luces
-        for(int i = 0; i<6; i++){
+        for (int i = 0; i<6; i++){
             parpadearLuces(luces,boolParpadear);
             boolParpadear = !boolParpadear;
+            audioClipManager.SeleccionarAudio(3, 0.5f);
             yield return new WaitForSeconds(0.1f);
         }
+        audioClipManagerFondo.Pause();
 
-        // TODO sonido de apagar generador
         apagarLuces(luces,linternas);
-        audioClipManager.SeleccionarAudio(0,0.5f);
+        
 
         // abrir puerta ------------
         puerta.GetComponent<Animator>().Play("Puerta");
+        audioClipManager.SeleccionarAudio(2, 0.5f);
         yield return new WaitForSeconds(1f);
         puerta.GetComponent<Animator>().enabled = false; // parar animacion
         subtitulos.IniciarTaller();
