@@ -227,8 +227,8 @@ GameObject:
   - component: {fileID: 447954}
   - component: {fileID: 11465950}
   - component: {fileID: 6846731460368933694}
-  - component: {fileID: 2935810788041458756}
   - component: {fileID: 4095467415793012525}
+  - component: {fileID: 1624687165263815428}
   m_Layer: 0
   m_Name: NetPlayer
   m_TagString: Untagged
@@ -311,25 +311,6 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &2935810788041458756
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 107946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0b49f05aa5115e45a82cc9d51f9021a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 11465950}
-  manoIzquierda: {fileID: 11450312}
-  manoDerecha: {fileID: 11401046}
-  camara: {fileID: 2014920}
-  cabeza: {fileID: 3224150550378145790}
-  manoIzq: {fileID: 373718630847918398}
-  manoDch: {fileID: 1343092250263831724}
 --- !u!114 &4095467415793012525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -346,6 +327,25 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &1624687165263815428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa242f181d115dc44bda0f532133177c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 11465950}
+  manoIzquierda: {fileID: 11450312}
+  manoDerecha: {fileID: 11401046}
+  camara: {fileID: 2014920}
+  cabeza: {fileID: 3224150550378145790}
+  manoIzq: {fileID: 373718630847918398}
+  manoDch: {fileID: 1343092250263831724}
 --- !u!1 &109154
 GameObject:
   m_ObjectHideFlags: 0
@@ -2878,7 +2878,7 @@ GameObject:
   - component: {fileID: 5980539284601216940}
   - component: {fileID: 8102565811597901837}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: CubeCabeza
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2971,9 +2971,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1343092250263831724}
-  - component: {fileID: 3671043864500609910}
   - component: {fileID: 2845455492977914705}
   - component: {fileID: 7222921218588311826}
+  - component: {fileID: 3829207112124958032}
   m_Layer: 0
   m_Name: manoDch
   m_TagString: Untagged
@@ -2997,20 +2997,6 @@ Transform:
   m_Father: {fileID: 5480835011206364715}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!114 &3671043864500609910
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2896268414711354043}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcf4b8850fd48c44b57a6c70aa08506, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  followed: {fileID: 485514}
-  offsetRotation: {x: 90, y: 0, z: 0}
 --- !u!114 &2845455492977914705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3050,6 +3036,20 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &3829207112124958032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2896268414711354043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 498dd5261b1857f428be83bfebeedef1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  followed: {fileID: 485514}
+  offsetRotation: {x: 0, y: 0, z: 0}
 --- !u!1 &3391413714567994333
 GameObject:
   m_ObjectHideFlags: 0
@@ -3168,7 +3168,8 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 1946053223930792264}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -3335,9 +3336,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 373718630847918398}
-  - component: {fileID: 578300977116648282}
   - component: {fileID: 6851892956258844864}
   - component: {fileID: 7269379695395789497}
+  - component: {fileID: 3481016232582393954}
   m_Layer: 0
   m_Name: manoIzq
   m_TagString: Untagged
@@ -3361,20 +3362,6 @@ Transform:
   m_Father: {fileID: 5480835011206364715}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!114 &578300977116648282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4452510684809882620}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcf4b8850fd48c44b57a6c70aa08506, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  followed: {fileID: 476540}
-  offsetRotation: {x: 90, y: 0, z: 0}
 --- !u!114 &6851892956258844864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3414,6 +3401,20 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &3481016232582393954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4452510684809882620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 498dd5261b1857f428be83bfebeedef1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  followed: {fileID: 476540}
+  offsetRotation: {x: 0, y: 0, z: 0}
 --- !u!1 &6432067446020948654
 GameObject:
   m_ObjectHideFlags: 0
@@ -3547,11 +3548,10 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 7159330281883668886}
-  - {fileID: 5517168339710665420}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &5517168339710665420
+--- !u!114 &6543794891988999476
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3560,13 +3560,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 766450207980288503}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c25ced92103fb2b478b006bfc4956934, type: 3}
+  m_Script: {fileID: 11500000, guid: 498dd5261b1857f428be83bfebeedef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poseAction:
-    actionPath: /actions/default/in/Pose
-    needsReinit: 0
-  handType: 2
+  followed: {fileID: 485514}
+  offsetRotation: {x: 0, y: 0, z: 0}
 --- !u!114 &7159330281883668886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3667,22 +3665,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1000013348574242, guid: 638779290bce1af49b356f33dcc6fccf, type: 3}
   m_PrefabInstance: {fileID: 6283931175551360835}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &952504826078663883
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6284368236793580385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c25ced92103fb2b478b006bfc4956934, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  poseAction:
-    actionPath: /actions/default/in/Pose
-    needsReinit: 0
-  handType: 1
 --- !u!114 &5377984180330490154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3703,7 +3685,6 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 7261665022419319681}
-  - {fileID: 952504826078663883}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
