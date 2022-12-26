@@ -1,16 +1,11 @@
-using FishNet;
-using FishNet.Connection;
-using FishNet.Managing.Scened;
-using FishNet.Object;
-using FishNet.Observing;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR.InteractionSystem;
 
-public class SpawnPlayer : NetworkBehaviour
+public class SpawnPlayer : MonoBehaviour
 {
-
+    /*
     public override void OnStartClient()
     {
         base.OnStartClient();
@@ -77,7 +72,6 @@ public class SpawnPlayer : NetworkBehaviour
         }
     }
 
-    [TargetRpc]
     void RespawnPlayer(NetworkConnection conn, GameObject player, Vector3 spawnPos)
     {
         int jugadores = GameObject.FindGameObjectsWithTag("Player").Length - 1;
@@ -89,17 +83,14 @@ public class SpawnPlayer : NetworkBehaviour
 
     }
 
-    [ServerRpc]
     void RespawnServer(GameObject player, Vector3 spawnPos)
     {
         RespawnObserver(player, spawnPos);
     }
-
-    [ObserversRpc]
     void RespawnObserver(GameObject player, Vector3 spawnPos)
     {
         Debug.Log("Me muevo en server");
         Debug.Log(player.GetComponent<NetworkObject>().IsOwner);
         player.transform.position = spawnPos;
-    }
+    }*/
 }

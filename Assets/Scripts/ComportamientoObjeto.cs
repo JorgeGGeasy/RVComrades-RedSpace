@@ -1,4 +1,3 @@
-using FishNet.Object;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +5,7 @@ using UnityEngine;
 public class ComportamientoObjeto : MonoBehaviour
 {
 
-    public void CambiarEscena(string nombreEscena)
+   /* public void CambiarEscena(string nombreEscena)
     {
         Debug.Log("Bon dia");
         //SceneManager.LoadScene("Nave", LoadSceneMode.Single);
@@ -17,7 +16,7 @@ public class ComportamientoObjeto : MonoBehaviour
                 player.GetComponent<SpawnPlayer>().Respawn(nombreEscena);
             }
         }
-    }
+    }*/
     // Start is called before the first frame update
     void Start()
     {

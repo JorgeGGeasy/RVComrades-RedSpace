@@ -1,13 +1,9 @@
-using FishNet;
-using FishNet.Broadcast;
-using FishNet.Connection;
-using FishNet.Object;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class RecibirGolpe : NetworkBehaviour
+public class RecibirGolpe : MonoBehaviour
 {
 
     public UnityEvent myEvent;
@@ -20,7 +16,7 @@ public class RecibirGolpe : NetworkBehaviour
     private Objeto objeto;
 
     private bool pulsarIndex;
-
+    /*
     private void OnEnable()
     {
         InstanceFinder.ClientManager.RegisterBroadcast<PositionIndex>(OnPositionBroadcast);
@@ -57,7 +53,7 @@ public class RecibirGolpe : NetworkBehaviour
             PulsarServer();
         }
     }
-    [ServerRpc(RequireOwnership = false)]
+    [ServerRpc(RequireOwnership = false)]   
     void PulsarServer()
     {
         PulsarObserver();
@@ -88,7 +84,7 @@ public class RecibirGolpe : NetworkBehaviour
     public struct PositionIndex : IBroadcast
     {
         public bool pIndex;
-    }
+    }*/
     // Start is called before the first frame update
     void Start()
     {
