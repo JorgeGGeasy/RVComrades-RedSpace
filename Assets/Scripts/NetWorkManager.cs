@@ -22,6 +22,7 @@ namespace Valve.VR.InteractionSystem
         public TeleportPoint teleportPoint;
         private string cambioEscena;
         private string anteriorEscena;
+        public bool unaVez;
 
         // Start is called before the first frame update
         void Start()
@@ -55,12 +56,15 @@ namespace Valve.VR.InteractionSystem
         {
             Debug.Log("Conectado al server");
             base.OnConnectedToMaster();
+            if (unaVez)
+            {
+                RoomOptions roomOptions = new RoomOptions();
+                roomOptions.MaxPlayers = 2;
+                roomOptions.IsVisible = true;
+                roomOptions.IsOpen = true;
+                PhotonNetwork.JoinOrCreateRoom("Room 1", roomOptions, TypedLobby.Default);
+            }
 
-            RoomOptions roomOptions = new RoomOptions();
-            roomOptions.MaxPlayers = 2;
-            roomOptions.IsVisible = true;
-            roomOptions.IsOpen = true;
-            PhotonNetwork.JoinOrCreateRoom("Room 1", roomOptions, TypedLobby.Default);
         }
 
         public void InitializeRoom(int index)
