@@ -6,15 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/CoopJorge.unity
+    guid: 4130a99d2a1d2bc4ba3b90391c3cfffd
+  - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: c732574f3c6013740a5da4034b138e2e
   - enabled: 1
     path: Assets/Scenes/Nave.unity
     guid: 48ba5e31155f7314185e8385737cee76
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MenuCoop.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/NaveCoop.unity
     guid: e7aaf62b794d7d24da34ade5983497f5
   m_configObjects:
