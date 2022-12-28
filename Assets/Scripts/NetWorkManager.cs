@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Photon.Realtime;
 
@@ -71,7 +72,8 @@ namespace Valve.VR.InteractionSystem
         {
             DefaultRoom roomSettings = defaultRooms[index];
 
-            PhotonNetwork.LoadLevel(roomSettings.sceneIndex);
+            //PhotonNetwork.LoadLevel(roomSettings.sceneIndex);
+            SceneManager.LoadScene(roomSettings.sceneIndex, LoadSceneMode.Single);
 
 
             RoomOptions roomOptions = new RoomOptions();
