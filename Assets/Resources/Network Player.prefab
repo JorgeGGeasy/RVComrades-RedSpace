@@ -376,7 +376,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114000012673113748, guid: 6def53d002137b747aec0b29551e0e25, type: 3}
+      propertyPath: overridePreviewLeftHandPrefab
+      value: 
+      objectReference: {fileID: 1000013348574242, guid: 638779290bce1af49b356f33dcc6fccf, type: 3}
+    - target: {fileID: 114000012673113748, guid: 6def53d002137b747aec0b29551e0e25, type: 3}
+      propertyPath: overridePreviewRightHandPrefab
+      value: 
+      objectReference: {fileID: 1000010304998954, guid: 6def53d002137b747aec0b29551e0e25, type: 3}
+    m_RemovedComponents:
+    - {fileID: 114000012051789102, guid: 6def53d002137b747aec0b29551e0e25, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6def53d002137b747aec0b29551e0e25, type: 3}
 --- !u!4 &398637428125773711 stripped
 Transform:
@@ -438,7 +447,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114000013038800862, guid: 638779290bce1af49b356f33dcc6fccf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 638779290bce1af49b356f33dcc6fccf, type: 3}
 --- !u!4 &4712672110459393315 stripped
 Transform:

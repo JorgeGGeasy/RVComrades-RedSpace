@@ -26,8 +26,8 @@ namespace Valve.VR.InteractionSystem
 
             Player player = FindObjectOfType<Player>();
 
-            //headRig = player.transform.Find("SteamVRObjects/VRCamera");
-            headRig = player.transform.Find("NoSteamVRFallbackObjects/FallbackObjects");
+            headRig = player.transform.Find("SteamVRObjects/VRCamera");
+            //headRig = player.transform.Find("NoSteamVRFallbackObjects/FallbackObjects");
             leftHandRig = player.transform.Find("SteamVRObjects/LeftHand");
             rightHandRig = player.transform.Find("SteamVRObjects/RightHand");
 
@@ -42,10 +42,6 @@ namespace Valve.VR.InteractionSystem
                 leftHand.gameObject.SetActive(false);
                 head.gameObject.SetActive(false);
 
-                Debug.Log(head.transform.position);
-
-                Debug.Log(headRig.transform.position);
-
 
                 MapPosition(head, headRig);
                 MapPosition(leftHand, leftHandRig);
@@ -55,8 +51,8 @@ namespace Valve.VR.InteractionSystem
 
         void MapPosition(Transform target, Transform rig)
         {
-            target.position = rig.position;
-            target.rotation = rig.rotation;
+            //target.position = rig.position;
+            //target.rotation = rig.rotation;
 
         }
     }
