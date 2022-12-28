@@ -51,8 +51,8 @@ namespace Valve.VR.InteractionSystem
 
         void MapPosition(Transform target, Transform rig)
         {
-            //target.position = rig.position;
-            //target.rotation = rig.rotation;
+            target.position = rig.position;
+            target.rotation = rig.rotation;
 
         }
     }
