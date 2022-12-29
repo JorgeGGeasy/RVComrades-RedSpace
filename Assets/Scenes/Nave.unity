@@ -7557,7 +7557,7 @@ MonoBehaviour:
   Group: 0
   prefixField: -1
   Synchronization: 3
-  OwnershipTransfer: 0
+  OwnershipTransfer: 1
   observableSearch: 2
   ObservedComponents:
   - {fileID: 758723377}
@@ -11490,7 +11490,7 @@ MonoBehaviour:
   objetoARomperCaja: {fileID: 866381385}
   tapaMovible: {fileID: 1548876553}
   tapaFija: {fileID: 1142091070}
-  velocidadNecesariaParaRomper: 2
+  velocidadNecesariaParaRomper: 5
   romperCaja: {fileID: 217857604}
 --- !u!65 &1308153129
 BoxCollider:
@@ -14256,7 +14256,7 @@ MonoBehaviour:
   Group: 0
   prefixField: -1
   Synchronization: 3
-  OwnershipTransfer: 0
+  OwnershipTransfer: 1
   observableSearch: 2
   ObservedComponents:
   - {fileID: 1548876560}
