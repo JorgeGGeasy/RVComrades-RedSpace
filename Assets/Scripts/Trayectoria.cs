@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 
 namespace Valve.VR.InteractionSystem
@@ -23,36 +24,75 @@ namespace Valve.VR.InteractionSystem
 
         [SerializeField]
         GameObject[] objetos;
+
+
+        private PhotonView photonView;
+   
+        void Start()
+        {
+            photonView = GetComponent<PhotonView>();
+        }
+
+
+
         public void Update()
         {
-            //CuboPequeñoIzquierda
+            //CuboPequeï¿½oIzquierda
             if (forma.contador == 1 && posicion.value > 0.9 && escala.value < 0.4 && !primerPuzle)
             {
-                Debug.Log("CuboPequeño");
-                primerPuzle = true;
-                objetos[0].SetActive(false);
+                photonView.RPC("casoCuadrado", RpcTarget.All);
             }
-            //CirculoMedianoEnmedio
+            //Rombo
             if (forma.contador == 2 && posicion.value > 0.45 && posicion.value < 0.55 && escala.value > 0.4 && escala.value < 0.8 && !segundoPuzle)
             {
-                Debug.Log("RomboMediano");
-                segundoPuzle = true;
-                objetos[1].SetActive(false);
+                photonView.RPC("casoRombo", RpcTarget.All);
             }
-            //RomboGrandeDerecha
+            //Circulo
             if (forma.contador == 0 && posicion.value < 0.08 && escala.value > 0.7 && !tercerPuzle)
             {
-                Debug.Log("CirculoGrande");
-                tercerPuzle = true;
-                objetos[2].SetActive(false);
+                photonView.RPC("casoCirculo", RpcTarget.All);
             }
 
             if(primerPuzle && segundoPuzle && tercerPuzle && !completo)
             {
-                completo = true;
+                photonView.RPC("casoCompleto", RpcTarget.All);
             }
             
             
         }
+
+
+
+        // activar cuadrado
+        [PunRPC]
+        private void casoCuadrado(){
+            Debug.Log("CuboPequenio");
+            primerPuzle = true;
+            objetos[0].SetActive(false);
+        }
+
+
+        // activar rombo
+        [PunRPC]
+        private void casoRombo(){
+            Debug.Log("RomboMediano");
+            segundoPuzle = true;
+            objetos[1].SetActive(false);
+        }
+
+        // activar circulo
+        [PunRPC]
+        private void casoCirculo(){
+            Debug.Log("CirculoGrande");
+            tercerPuzle = true;
+            objetos[2].SetActive(false);
+        }
+
+        [PunRPC]
+        private void casoCompleto(){
+            completo = true;
+        }
+
+
     }
 }

@@ -28,7 +28,7 @@ MonoBehaviour:
     AuthMode: 0
     EnableLobbyStatistics: 0
     NetworkLogging: 1
-  DevRegion: 
+  DevRegion: eu
   PunLogging: 0
   EnableSupportLogger: 0
   RunInBackground: 1
@@ -39,6 +39,29 @@ MonoBehaviour:
   - DestroySpaceship
   - Fire
   - RespawnSpaceship
+  - PlayApagarLuces
+  - PlayClick
+  - PlayPuerta
+  - apagarLuces
+  - ApagarMusicaFondo
+  - parpadearLuces
+  - animarCables
+  - animarPuerta
+  - pararPuerta
+  - colocarTarjeta
+  - moverTarjeta
+  - tamanyo1
+  - tamanyo2
+  - tamanyo3
+  - caso0
+  - caso1
+  - caso2
+  - casoCompleto
+  - casoCriculo
+  - casoCuadrado
+  - casoRombo
+  - casoCirculo
+  - romperCandado
   DisableAutoOpenWizard: 1
   ShowSettings: 1
-  DevRegionSetOnce: 0
+  DevRegionSetOnce: 1
