@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 
 
@@ -22,10 +23,13 @@ public class ColocarPatata : MonoBehaviour
     private AudioSource audioClipManagerFondo;
 
     public bool patataColocada = false;
-    // Start is called before the first frame update
+    private Collider hitColliderTemp;
+    
+    private PhotonView photonView;
+
     void Start()
     {
-        
+        photonView = GetComponent<PhotonView>();
     }
 
     // Update is called once per frame
@@ -38,16 +42,23 @@ public class ColocarPatata : MonoBehaviour
             {
                 if (hitCollider.gameObject.tag == "Patata")
                 {
-                    Debug.Log("Patata");
-                    patataCaja.gameObject.SetActive(true);
-                    hitCollider.gameObject.SetActive(false);
-                    patataColocada = true;
-                    StartCoroutine(AnimacionEncenderLuces());
+                    hitColliderTemp = hitCollider;
+                    photonView.RPC("colocarPatata", RpcTarget.All);
+                    
                 }
             }
         }
     }
 
+
+    [PunRPC]
+    private void colocarPatata(){
+        Debug.Log("Patata");
+        patataCaja.gameObject.SetActive(true);
+        hitColliderTemp.gameObject.SetActive(false);
+        patataColocada = true;
+        StartCoroutine(AnimacionEncenderLuces());
+    }
 
      IEnumerator AnimacionEncenderLuces(){
 
