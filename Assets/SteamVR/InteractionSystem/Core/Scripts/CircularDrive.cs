@@ -106,7 +106,7 @@ namespace Valve.VR.InteractionSystem
         protected Interactable interactable;
 
 		//-------------------------------------------------
-		protected void Freeze( Hand hand )
+		protected virtual void Freeze( Hand hand )
 		{
 			frozen = true;
 			frozenAngle = outAngle;
@@ -117,19 +117,19 @@ namespace Valve.VR.InteractionSystem
 
 
 		//-------------------------------------------------
-		protected void UnFreeze()
+		protected virtual void UnFreeze()
 		{
 			frozen = false;
 			frozenHandWorldPos.Set( 0.0f, 0.0f, 0.0f );
 		}
 
-        protected void Awake()
+        protected virtual void Awake()
         {
             interactable = this.GetComponent<Interactable>();
         }
 
         //-------------------------------------------------
-        protected void Start()
+        protected virtual void Start()
 		{
 			if ( childCollider == null )
 			{
@@ -195,7 +195,7 @@ namespace Valve.VR.InteractionSystem
 
 
 		//-------------------------------------------------
-		protected IEnumerator HapticPulses( Hand hand, float flMagnitude, int nCount )
+		protected virtual IEnumerator HapticPulses( Hand hand, float flMagnitude, int nCount )
 		{
 			if ( hand != null )
 			{
@@ -217,14 +217,14 @@ namespace Valve.VR.InteractionSystem
 
 
 		//-------------------------------------------------
-		protected void OnHandHoverBegin( Hand hand )
+		protected virtual void OnHandHoverBegin( Hand hand )
 		{
             hand.ShowGrabHint();
 		}
 
 
 		//-------------------------------------------------
-		protected void OnHandHoverEnd( Hand hand )
+		protected virtual void OnHandHoverEnd( Hand hand )
 		{
             hand.HideGrabHint();
 
@@ -240,7 +240,7 @@ namespace Valve.VR.InteractionSystem
 
         protected GrabTypes grabbedWithType;
 		//-------------------------------------------------
-		protected void HandHoverUpdate( Hand hand )
+		protected virtual void HandHoverUpdate( Hand hand )
         {
             GrabTypes startingGrabType = hand.GetGrabStarting();
             bool isGrabEnding = hand.IsGrabbingWithType(grabbedWithType) == false;
@@ -286,7 +286,7 @@ namespace Valve.VR.InteractionSystem
 
 
 		//-------------------------------------------------
-		protected Vector3 ComputeToTransformProjected( Transform xForm )
+		protected virtual Vector3 ComputeToTransformProjected( Transform xForm )
 		{
 			Vector3 toTransform = ( xForm.position - transform.position ).normalized;
 			Vector3 toTransformProjected = new Vector3( 0.0f, 0.0f, 0.0f );
@@ -312,7 +312,7 @@ namespace Valve.VR.InteractionSystem
 
 
 		//-------------------------------------------------
-		protected void DrawDebugPath( Transform xForm, Vector3 toTransformProjected )
+		protected virtual void DrawDebugPath( Transform xForm, Vector3 toTransformProjected )
 		{
 			if ( dbgObjectCount == 0 )
 			{
@@ -409,7 +409,7 @@ namespace Valve.VR.InteractionSystem
 		//-------------------------------------------------
 		// Updates the LinearMapping value from the angle
 		//-------------------------------------------------
-		protected void UpdateGameObject()
+		protected virtual void UpdateGameObject()
 		{
 			if ( rotateGameObject )
 			{
@@ -421,7 +421,7 @@ namespace Valve.VR.InteractionSystem
 		//-------------------------------------------------
 		// Updates the Debug TextMesh with the linear mapping value and the angle
 		//-------------------------------------------------
-		protected void UpdateDebugText()
+		protected virtual void UpdateDebugText()
 		{
 			if ( debugText )
 			{
@@ -444,7 +444,7 @@ namespace Valve.VR.InteractionSystem
 		//-------------------------------------------------
 		// Computes the angle to rotate the game object based on the change in the transform
 		//-------------------------------------------------
-		protected void ComputeAngle( Hand hand )
+		protected virtual void ComputeAngle( Hand hand )
 		{
 			Vector3 toHandProjected = ComputeToTransformProjected( hand.hoverSphereTransform );
 

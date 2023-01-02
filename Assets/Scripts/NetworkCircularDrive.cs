@@ -7,31 +7,34 @@ namespace Valve.VR.InteractionSystem
     public class NetworkCircularDrive : CircularDrive
     {
     
-        private PhotonView photonView;
-        private float linearValue;
+       private PhotonView photonView;
     
         // Start is called before the first frame update
         void Start()
         {
-            
-                photonView = GetComponent<PhotonView>();
+            base.Start();
+            photonView = GetComponent<PhotonView>();
         }
 
 
-        protected override void UpdateAll(){
+        /*protected override void UpdateAll(){
 
             
             base.UpdateAll();
-            linearValue = linearMapping.value;
-            //photonView.RPC("UpdateLinearMappingSync", RpcTarget.All,linearValue);
+            /*float linearValue = linearMapping.value;
+            Quaternion startTEMP = start;
+            Vector3 localPlaneNormalTEMP = localPlaneNormal;
+            photonView.RPC("UpdateLinearMappingSync", RpcTarget.All,linearValue,start,localPlaneNormal);
 
         
         }
 
         [PunRPC]
-        private void UpdateLinearMappingSync(float linearValue){
+        private void UpdateLinearMappingSync(float linearValue, Quaternion startTEMP, Vector3 localPlaneNormalTEMP){
            linearMapping.value = linearValue;
-           base.UpdateAll();
-        }
+           start = startTEMP;
+           localPlaneNormal = localPlaneNormalTEMP;
+           base.UpdateGameObject();
+        }*/
     }
 }
