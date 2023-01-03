@@ -2,44 +2,50 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PrepararObjetos : MonoBehaviour
+namespace Valve.VR.InteractionSystem
 {
-
-    [SerializeField]
-    GameObject[] objetosNecesarios;
-
-    int contador;
-
-    public bool objetos;
-    // Start is called before the first frame update
-    void Start()
+    public class PrepararObjetos : MonoBehaviour
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        [SerializeField]
+        GameObject[] objetosNecesarios;
 
-    void OnTriggerEnter(Collider c)
-    {
-        Debug.Log(objetosNecesarios.Length);
-        foreach(GameObject objetoNecesario in objetosNecesarios)
+        FinNivel finNivelScript;
+
+        int contador;
+
+        public bool objetos;
+        // Start is called before the first frame update
+        void Start()
         {
-            if (c.gameObject == objetoNecesario && !objetos)
+            finNivelScript = FinNivel.Instance;
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            
+        }
+
+        void OnTriggerEnter(Collider c)
+        {
+            Debug.Log(objetosNecesarios.Length);
+            foreach(GameObject objetoNecesario in objetosNecesarios)
             {
-                Debug.Log("Colision");
-                objetoNecesario.SetActive(false);
-                contador++;                
+                if (c.gameObject == objetoNecesario && !objetos)
+                {
+                    Debug.Log("Colision");
+                    objetoNecesario.transform.position = new Vector3(999.0f,999.0f,999.0f);
+                    contador++;                
+                }
             }
-        }
 
-        if (contador == objetosNecesarios.Length)
-        {
-            objetos = true;
-        }
+            if (contador == objetosNecesarios.Length)
+            {
+                finNivelScript.FinalizadoPuzlePrepararObjetos();
+                //objetos = true;
+            }
 
+        }
     }
 }

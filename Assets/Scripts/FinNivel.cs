@@ -44,9 +44,23 @@ namespace Valve.VR.InteractionSystem
         private Color colorVerdeLuz;
 
         private PhotonView photonView;
-    // Start is called before the first frame update
-        void Start()
+
+
+        public static FinNivel Instance; // A static reference to the GameManager instance
+
+        void Awake()
         {
+            if(Instance == null) // If there is no instance already
+            {
+                DontDestroyOnLoad(gameObject); // Keep the GameObject, this component is attached to, across different scenes
+                Instance = this;
+            } else if(Instance != this) // If there is already an instance and it's not `this` instance
+            {
+                Destroy(gameObject); // Destroy the GameObject, this component is attached to
+            }
+        }
+
+        void Start(){
             photonView = GetComponent<PhotonView>();
         }
 
@@ -55,12 +69,9 @@ namespace Valve.VR.InteractionSystem
         {
             if (!nivelCompletado)
             {
-                if (patata.patataColocada && !puzle1)
-                {
-                    photonView.RPC("puzlePatataColocada", RpcTarget.All);
-                }
+                
 
-                if (linearMappingTarjeta.value > 0.9 && !puzle2)
+                /*if (linearMappingTarjeta.value > 0.9 && !puzle2)
                 {
 
                     photonView.RPC("puzlePuertaBanyoTRUE", RpcTarget.All);
@@ -73,19 +84,10 @@ namespace Valve.VR.InteractionSystem
                     photonView.RPC("puzlePuertaBanyoFALSE", RpcTarget.All);
                     
 
-                }
+                }*/
 
-                if (prepararObjetos.objetos && !puzle3)
-                {
-                    photonView.RPC("puzlePrepararObjetos", RpcTarget.All);
-                }
-
-                if (trayectoria.completo && !puzle4)
-                {
-
-                    photonView.RPC("puzleTrayectoriaCompleto", RpcTarget.All);
-                    
-                }
+                
+                
 
                 if (puzle1 && puzle2 && puzle3 && puzle4)
                 {
@@ -103,6 +105,21 @@ namespace Valve.VR.InteractionSystem
 
         }
 
+
+        public void FinalizadoPuzlePatataColocada(){
+            photonView.RPC("puzlePatataColocada", RpcTarget.All);
+        }
+        public void FinalizadoPuzlePuertaBanyo(bool valid){
+            photonView.RPC("puzlePuertaBanyo", RpcTarget.All, valid);
+        }
+        
+        public void FinalizadoPuzleTrayectoria(){
+            photonView.RPC("puzleTrayectoriaCompleto", RpcTarget.All);
+        }
+        public void FinalizadoPuzlePrepararObjetos(){
+            photonView.RPC("puzlePrepararObjetos", RpcTarget.All);
+        }
+
         [PunRPC]
         private void PuzleCompletado(){
             Debug.Log("PuzleCompletado");
@@ -111,12 +128,14 @@ namespace Valve.VR.InteractionSystem
 
         [PunRPC]
         private void puzlePatataColocada(){
+            Debug.Log("Puzle Patata");
             puzle1 = true;
             cambiarLuz(0, puzle1);
         }
 
         [PunRPC]
         private void puzlePrepararObjetos(){
+            Debug.Log("Puzle Preparar");
             puzle3 = true;
             cambiarLuz(2, puzle3);
         }
@@ -124,25 +143,22 @@ namespace Valve.VR.InteractionSystem
 
         [PunRPC]
         private void puzleTrayectoriaCompleto(){
+            Debug.Log("Puzle trayectoria");
             puzle4 = true;
             cambiarLuz(3, puzle4);
         }
 
         [PunRPC]
-        private void puzlePuertaBanyoTRUE(){
-            puzle2 = true;
-            cambiarLuz(1, puzle2);
+        private void puzlePuertaBanyo(bool valid){
+            Debug.Log("Puzle puerta true");
+            puzle2 = valid;
+            cambiarLuz(1, valid);
             if (!audioClipManager.GetComponent<AudioSource>().isPlaying)
             {
                 audioClipManager.SeleccionarAudio(6, 2f);
             }
         }
 
-        [PunRPC]
-        private void puzlePuertaBanyoFALSE(){
-            puzle2 = false;
-            cambiarLuz(1, puzle2); 
-        }
         
 
          

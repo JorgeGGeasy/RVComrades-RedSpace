@@ -6972,6 +6972,7 @@ GameObject:
   - component: {fileID: 687709887}
   - component: {fileID: 687709886}
   - component: {fileID: 687709888}
+  - component: {fileID: 687709889}
   m_Layer: 0
   m_Name: Controlador
   m_TagString: Untagged
@@ -7031,6 +7032,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0508c3e7e77f0d948a163d1d57bd578e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &687709889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687709885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 34
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &707326643
 GameObject:
   m_ObjectHideFlags: 0
@@ -7832,8 +7855,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.032145675, y: 0.026189981, z: 0.010643843}
-  m_Center: {x: -0.004228524, y: 0.01316208, z: -0.00032533976}
+  m_Size: {x: 0.032145675, y: 0.026189981, z: 0.02515471}
+  m_Center: {x: -0.004228524, y: 0.01316208, z: -0.0026680601}
 --- !u!54 &769672158
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9349,6 +9372,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7564990675448553030, guid: 601429062f5016a4cb40cac47d95f2b0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -3689232217750483573, guid: 601429062f5016a4cb40cac47d95f2b0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.00068612065
@@ -9404,10 +9431,18 @@ PrefabInstance:
     - target: {fileID: -2266168267186317892, guid: 601429062f5016a4cb40cac47d95f2b0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: -1655935909830493497, guid: 601429062f5016a4cb40cac47d95f2b0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 601429062f5016a4cb40cac47d95f2b0, type: 3}
       propertyPath: m_Name
       value: destornillador
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 601429062f5016a4cb40cac47d95f2b0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5003251747809878716, guid: 601429062f5016a4cb40cac47d95f2b0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14844,8 +14879,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.03, y: 0.003, z: 0.003}
-  m_Center: {x: 0, y: 0.012, z: 0}
+  m_Size: {x: 0.042777464, y: 0.020560969, z: 0.025617203}
+  m_Center: {x: 0.00039233008, y: 0.0043089185, z: 0.00196746}
 --- !u!114 &1574529760
 MonoBehaviour:
   m_ObjectHideFlags: 0
