@@ -27,7 +27,7 @@ namespace Valve.VR.InteractionSystem
         [SerializeField]
         Trayectoria trayectoria;
 
-        bool puzle1 = false;
+        public bool puzle1 = false; // puzle Patata
         bool puzle2 = false;
         bool puzle3 = false;
         bool puzle4 = false;

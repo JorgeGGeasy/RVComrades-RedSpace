@@ -17,6 +17,11 @@ namespace Valve.VR.InteractionSystem
         [SerializeField]
         PulsarBoton forma;
 
+        [SerializeField]
+        GameObject objetoNivel;// variable para activar o desactivar el nivel para el usuario
+        [SerializeField]
+        GameObject palanca, mando, boton;// variables para activar o desactivar los collider para desactivar que se puedan tocar
+
         bool primerPuzle = false;
         bool segundoPuzle = false;
         bool tercerPuzle = false;
@@ -29,9 +34,12 @@ namespace Valve.VR.InteractionSystem
         private AudioClipManager audioClipManager;
 
         private PhotonView photonView;
+
+        private FinNivel finNivel;
    
         void Start()
         {
+            finNivel = FinNivel.Instance;
             photonView = GetComponent<PhotonView>();
         }
 
@@ -39,28 +47,43 @@ namespace Valve.VR.InteractionSystem
 
         public void Update()
         {
-            //CuboPequeï¿½oIzquierda
-            if (forma.contador == 1 && posicion.value > 0.9 && escala.value < 0.4 && !primerPuzle)
-            {
-                photonView.RPC("casoCuadrado", RpcTarget.All);
-            }
-            //Rombo
-            if (forma.contador == 2 && posicion.value > 0.45 && posicion.value < 0.55 && escala.value > 0.4 && escala.value < 0.8 && !segundoPuzle)
-            {
-                photonView.RPC("casoRombo", RpcTarget.All);
-            }
-            //Circulo
-            if (forma.contador == 0 && posicion.value < 0.2 && escala.value > 0.7 && !tercerPuzle)
-            {
-                photonView.RPC("casoCirculo", RpcTarget.All);
-            }
 
-            if(primerPuzle && segundoPuzle && tercerPuzle && !completo)
-            {
-                photonView.RPC("casoCompleto", RpcTarget.All);
+            if(finNivel.puzle1){
+                activarObjetos(true);
+                 //CuboPequeï¿½oIzquierda
+                if (forma.contador == 1 && posicion.value > 0.9 && escala.value < 0.4 && !primerPuzle)
+                {
+                    photonView.RPC("casoCuadrado", RpcTarget.All);
+                }
+                //Rombo
+                if (forma.contador == 2 && posicion.value > 0.45 && posicion.value < 0.55 && escala.value > 0.4 && escala.value < 0.8 && !segundoPuzle)
+                {
+                    photonView.RPC("casoRombo", RpcTarget.All);
+                }
+                //Circulo
+                if (forma.contador == 0 && posicion.value < 0.2 && escala.value > 0.7 && !tercerPuzle)
+                {
+                    photonView.RPC("casoCirculo", RpcTarget.All);
+                }
+
+                if(primerPuzle && segundoPuzle && tercerPuzle && !completo)
+                {
+                    photonView.RPC("casoCompleto", RpcTarget.All);
+                }
+            }else{
+                activarObjetos(false);
             }
+           
         }
 
+        private void activarObjetos(bool activar){
+           
+            objetoNivel.SetActive(activar);
+            palanca.GetComponent<BoxCollider>().enabled = (activar);
+            boton.GetComponent<BoxCollider>().enabled = (activar);
+            mando.GetComponent<MeshCollider>().enabled = (activar);
+            
+        }
 
 
         // activar cuadrado
@@ -93,7 +116,7 @@ namespace Valve.VR.InteractionSystem
 
         [PunRPC]
         private void casoCompleto(){
-            completo = true;
+            finNivel.FinalizadoPuzleTrayectoria();
         }
 
 
