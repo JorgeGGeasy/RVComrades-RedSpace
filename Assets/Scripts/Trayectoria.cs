@@ -25,6 +25,8 @@ namespace Valve.VR.InteractionSystem
         [SerializeField]
         GameObject[] objetos;
 
+        [SerializeField]
+        private AudioClipManager audioClipManager;
 
         private PhotonView photonView;
    
@@ -40,16 +42,19 @@ namespace Valve.VR.InteractionSystem
             //CuboPeque�oIzquierda
             if (forma.contador == 1 && posicion.value > 0.9 && escala.value < 0.4 && !primerPuzle)
             {
+                audioClipManager.SeleccionarAudio(8, 0.8f);
                 photonView.RPC("casoCuadrado", RpcTarget.All);
             }
             //Rombo
             if (forma.contador == 2 && posicion.value > 0.45 && posicion.value < 0.55 && escala.value > 0.4 && escala.value < 0.8 && !segundoPuzle)
             {
+                audioClipManager.SeleccionarAudio(8, 0.8f);
                 photonView.RPC("casoRombo", RpcTarget.All);
             }
             //Circulo
-            if (forma.contador == 0 && posicion.value < 0.08 && escala.value > 0.7 && !tercerPuzle)
+            if (forma.contador == 0 && posicion.value < 0.2 && escala.value > 0.7 && !tercerPuzle)
             {
+                audioClipManager.SeleccionarAudio(8, 0.8f);
                 photonView.RPC("casoCirculo", RpcTarget.All);
             }
 

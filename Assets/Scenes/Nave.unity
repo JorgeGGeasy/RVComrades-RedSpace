@@ -2725,6 +2725,7 @@ MonoBehaviour:
   - {fileID: 35055616}
   - {fileID: 77766984}
   - {fileID: 1223965851}
+  audioClipManager: {fileID: 2060667607}
 --- !u!114 &287336060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7044,6 +7045,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0508c3e7e77f0d948a163d1d57bd578e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textBox: {fileID: 1881265560}
+  audioClipManager: {fileID: 2060667607}
 --- !u!114 &687709889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19802,6 +19805,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 135094485e946734f8bea803c7d59eb5, type: 3}
   - {fileID: 8300000, guid: 062657baae65c294988cdc6150d05fae, type: 3}
   - {fileID: 8300000, guid: 4222200232d08f1428f3d5d460bb40e6, type: 3}
+  - {fileID: 8300000, guid: 7fc441fe1e514ff45863f18e77c90a43, type: 3}
+  - {fileID: 8300000, guid: f217b9c2997610f4ebd141a23a5e33ad, type: 3}
   controlAudio: {fileID: 2060667606}
 --- !u!4 &2060667608
 Transform:
