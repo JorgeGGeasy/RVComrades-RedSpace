@@ -8,13 +8,12 @@ namespace Valve.VR.InteractionSystem
     {
     
         private PhotonView photonView;
-        private Transform updateTransformTEMP;
+        private float linearValue;
     
         // Start is called before the first frame update
         void Start()
         {
-            
-                photonView = GetComponent<PhotonView>();
+            photonView = GetComponent<PhotonView>();
         }
 
         // Update is called once per frame
@@ -25,23 +24,24 @@ namespace Valve.VR.InteractionSystem
 
         protected override void UpdateLinearMapping(Transform updateTransform ){
 
-            updateTransformTEMP = updateTransform;
-            photonView.RPC("UpdateLinearMappingSync", RpcTarget.All);
             
+            base.UpdateLinearMapping(updateTransform);
+            linearValue = linearMapping.value;
+            photonView.RPC("UpdateLinearMappingSync", RpcTarget.All,linearValue);
 
         
         }
 
         [PunRPC]
-        private void UpdateLinearMappingSync(){
-            linearMapping.value = Mathf.Clamp01( initialMappingOffset + CalculateLinearMapping( updateTransformTEMP ) );
+        private void UpdateLinearMappingSync(float linearValue){
+            linearMapping.value = linearValue;
 
-            mappingChangeSamples[sampleCount % mappingChangeSamples.Length] = ( 1.0f / Time.deltaTime ) * ( linearMapping.value - prevMapping );
+            mappingChangeSamples[sampleCount % mappingChangeSamples.Length] = ( 1.0f / Time.deltaTime ) * ( linearValue - prevMapping );
             sampleCount++;
 
             if ( repositionGameObject )
             {
-                transform.position = Vector3.Lerp( startPosition.position, endPosition.position, linearMapping.value );
+                transform.position = Vector3.Lerp( startPosition.position, endPosition.position, linearValue );
             }
         }
     }

@@ -7,6 +7,9 @@ using TMPro;
 public class Subtitulos : MonoBehaviour
 {
     public TMP_Text textBox;
+
+    [SerializeField]
+    private AudioClipManager audioClipManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +36,7 @@ public class Subtitulos : MonoBehaviour
     IEnumerator TheSequenceNave()
     {
         yield return new WaitForSeconds(1);
+        audioClipManager.SeleccionarAudio(7, 0.5f);
         textBox.text = "Maksim: Nos aproximamos a la luna";
         yield return new WaitForSeconds(5);
         textBox.text = "";
@@ -53,6 +57,7 @@ public class Subtitulos : MonoBehaviour
     IEnumerator TheSequenceSala()
     {
         yield return new WaitForSeconds(1);
+        audioClipManager.SeleccionarAudio(7, 0.5f);
         textBox.text = "Maksim: Maldita sea la puerta se ha cerrado";
         yield return new WaitForSeconds(5);
         textBox.text = "";
@@ -69,6 +74,7 @@ public class Subtitulos : MonoBehaviour
     IEnumerator TheSequenceTrampilla()
     {
         yield return new WaitForSeconds(1);
+        audioClipManager.SeleccionarAudio(7, 0.5f);
         textBox.text = "Maksim: Vale antes de salir hay";
         yield return new WaitForSeconds(5);
         textBox.text = "que solucionar unas cuantas cosas";
@@ -85,8 +91,6 @@ public class Subtitulos : MonoBehaviour
         yield return new WaitForSeconds(4);
         textBox.text = "";
     }
-
-
 
     IEnumerator TheSequenceDesacopleModuloLunar()
     {
