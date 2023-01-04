@@ -70,24 +70,20 @@ namespace Valve.VR.InteractionSystem
             if (!nivelCompletado)
             {
                 
-
-                /*if (linearMappingTarjeta.value > 0.9 && !puzle2)
+                if (linearMappingTarjeta.value > 0.9 && !puzle2)
                 {
 
-                    photonView.RPC("puzlePuertaBanyoTRUE", RpcTarget.All);
+                    photonView.RPC("puzlePuertaBanyo", RpcTarget.All, true);
                    
 
 
                 }
                 else if(linearMappingTarjeta.value < 0.9 && puzle2)
                 {
-                    photonView.RPC("puzlePuertaBanyoFALSE", RpcTarget.All);
+                    photonView.RPC("puzlePuertaBanyo", RpcTarget.All, false);
                     
 
-                }*/
-
-                
-                
+                }
 
                 if (puzle1 && puzle2 && puzle3 && puzle4)
                 {
@@ -108,9 +104,6 @@ namespace Valve.VR.InteractionSystem
 
         public void FinalizadoPuzlePatataColocada(){
             photonView.RPC("puzlePatataColocada", RpcTarget.All);
-        }
-        public void FinalizadoPuzlePuertaBanyo(bool valid){
-            photonView.RPC("puzlePuertaBanyo", RpcTarget.All, valid);
         }
         
         public void FinalizadoPuzleTrayectoria(){
