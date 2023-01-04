@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 public class Subtitulos : MonoBehaviour
@@ -9,7 +10,14 @@ public class Subtitulos : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(TheSequenceNave());
+        // Return the current Active Scene in order to get the current Scene name.
+        Scene scene = SceneManager.GetActiveScene();
+
+        // Check if the name of the current Active Scene is your first Scene.
+        if (scene.name == "Nave")
+        {
+            StartCoroutine(TheSequenceNave());
+        }
     }
 
     public void IniciarSala()
