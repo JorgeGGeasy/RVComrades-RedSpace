@@ -39,22 +39,19 @@ namespace Valve.VR.InteractionSystem
 
         public void Update()
         {
-            //CuboPeque�oIzquierda
+            //CuboPequeï¿½oIzquierda
             if (forma.contador == 1 && posicion.value > 0.9 && escala.value < 0.4 && !primerPuzle)
             {
-                audioClipManager.SeleccionarAudio(8, 0.8f);
                 photonView.RPC("casoCuadrado", RpcTarget.All);
             }
             //Rombo
             if (forma.contador == 2 && posicion.value > 0.45 && posicion.value < 0.55 && escala.value > 0.4 && escala.value < 0.8 && !segundoPuzle)
             {
-                audioClipManager.SeleccionarAudio(8, 0.8f);
                 photonView.RPC("casoRombo", RpcTarget.All);
             }
             //Circulo
             if (forma.contador == 0 && posicion.value < 0.2 && escala.value > 0.7 && !tercerPuzle)
             {
-                audioClipManager.SeleccionarAudio(8, 0.8f);
                 photonView.RPC("casoCirculo", RpcTarget.All);
             }
 
@@ -62,8 +59,6 @@ namespace Valve.VR.InteractionSystem
             {
                 photonView.RPC("casoCompleto", RpcTarget.All);
             }
-            
-            
         }
 
 
@@ -71,6 +66,7 @@ namespace Valve.VR.InteractionSystem
         // activar cuadrado
         [PunRPC]
         private void casoCuadrado(){
+            audioClipManager.SeleccionarAudio(8, 0.8f);
             Debug.Log("CuboPequenio");
             primerPuzle = true;
             objetos[0].SetActive(false);
@@ -80,6 +76,7 @@ namespace Valve.VR.InteractionSystem
         // activar rombo
         [PunRPC]
         private void casoRombo(){
+            audioClipManager.SeleccionarAudio(8, 0.8f);
             Debug.Log("RomboMediano");
             segundoPuzle = true;
             objetos[1].SetActive(false);
@@ -88,6 +85,7 @@ namespace Valve.VR.InteractionSystem
         // activar circulo
         [PunRPC]
         private void casoCirculo(){
+            audioClipManager.SeleccionarAudio(8, 0.8f);
             Debug.Log("CirculoGrande");
             tercerPuzle = true;
             objetos[2].SetActive(false);

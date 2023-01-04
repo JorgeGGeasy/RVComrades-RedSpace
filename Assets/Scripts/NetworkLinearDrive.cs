@@ -13,7 +13,6 @@ namespace Valve.VR.InteractionSystem
         // Start is called before the first frame update
         void Start()
         {
-            base.Start();
             photonView = GetComponent<PhotonView>();
         }
 
