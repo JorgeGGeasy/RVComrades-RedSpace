@@ -20,34 +20,7 @@ namespace Valve.VR.InteractionSystem
     {
         public List<DefaultRoom> defaultRooms;
 
-        public TeleportPoint teleportPoint;
-        private string cambioEscena;
-        private string anteriorEscena;
-        public bool unaVez;
-
-        // Start is called before the first frame update
-        void Start()
-        {
-            ConnectToServer();
-            anteriorEscena = teleportPoint.CambioEscena;
-            cambioEscena = teleportPoint.CambioEscena;
-        }
-
-        private void Update()
-        {
-            cambioEscena = teleportPoint.CambioEscena;
-            if(cambioEscena != anteriorEscena)
-            {
-                if(cambioEscena == "Nave")
-                {
-                    Debug.Log("Hola");
-                    InitializeRoom(1);
-                    anteriorEscena = cambioEscena;
-                }
-            }
-        }
-
-        private void ConnectToServer()
+        public void ConnectToServer()
         {
             PhotonNetwork.ConnectUsingSettings();
             Debug.Log("Intentando conexion");
@@ -57,29 +30,27 @@ namespace Valve.VR.InteractionSystem
         {
             Debug.Log("Conectado al server");
             base.OnConnectedToMaster();
-            if (unaVez)
-            {
-                RoomOptions roomOptions = new RoomOptions();
-                roomOptions.MaxPlayers = 2;
-                roomOptions.IsVisible = true;
-                roomOptions.IsOpen = true;
-                PhotonNetwork.JoinOrCreateRoom("Room 1", roomOptions, TypedLobby.Default);
-            }
+            PhotonNetwork.JoinLobby();
+        }
 
+        public override void OnJoinedLobby()
+        {
+            base.OnJoinedLobby();
+            Debug.Log("We JoinedLobby");
+            InitializeRoom(0);
         }
 
         public void InitializeRoom(int index)
         {
             DefaultRoom roomSettings = defaultRooms[index];
 
-            //PhotonNetwork.LoadLevel(roomSettings.sceneIndex);
-            SceneManager.LoadScene(roomSettings.sceneIndex, LoadSceneMode.Single);
-
+            PhotonNetwork.LoadLevel(roomSettings.sceneIndex);
 
             RoomOptions roomOptions = new RoomOptions();
             roomOptions.MaxPlayers = 2;
             roomOptions.IsVisible = true;
             roomOptions.IsOpen = true;
+
             PhotonNetwork.JoinOrCreateRoom(roomSettings.Name, roomOptions, TypedLobby.Default);
         }
 
