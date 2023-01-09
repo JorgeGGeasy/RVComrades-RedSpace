@@ -13,6 +13,7 @@ TagManager:
   - Bullet
   - video
   - Pizarra
+  - Subtitulo
   layers:
   - Default
   - TransparentFX

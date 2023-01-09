@@ -38,6 +38,9 @@ namespace Valve.VR.InteractionSystem
         private GameObject[] luces;
 
         [SerializeField]
+        private GameObject[] iconos;
+
+        [SerializeField]
         private Color colorRojoLuz;
 
         [SerializeField]
@@ -158,7 +161,8 @@ namespace Valve.VR.InteractionSystem
 
         void cambiarLuz(int numero, bool activo)
         {
-            luces[numero].GetComponent<Light>().color = activo ? colorVerdeLuz : colorRojoLuz;
+            //luces[numero].GetComponent<Light>().color = activo ? colorVerdeLuz : colorRojoLuz;
+            iconos[numero].GetComponent<SpriteRenderer>().color = activo ? Color.white : Color.red;
         }
     }
 
