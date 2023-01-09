@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using Photon.Pun;
 
 public class Rotulador : MonoBehaviour
 {
@@ -20,39 +19,31 @@ public class Rotulador : MonoBehaviour
     private bool tocarUltimoFrame;
     private Quaternion ultimoToqueRot;
 
-    private PhotonView photonView;
-
     // Start is called before the first frame update
     void Start()
     {
         renderer = punta.GetComponent<Renderer>();
         colores = Enumerable.Repeat(renderer.material.color, tamañoPunta * tamañoPunta).ToArray();
         alturaPunta = punta.localScale.y/6f;
-        photonView = GetComponent<PhotonView>();
+        Debug.Log(alturaPunta);
     }
 
     // Update is called once per frame
     void Update()
     {
-        photonView.RPC("Dibujar", RpcTarget.All);
-    }
-
-    [PunRPC]
-    private void Dibujar()
-    {
-        if (Physics.Raycast(punta.position, transform.forward * -1, out tocarPizarra, alturaPunta / 3f))
+        if(Physics.Raycast(punta.position, transform.forward *-1, out tocarPizarra, alturaPunta/3f))
         {
             if (tocarPizarra.transform.CompareTag("Pizarra"))
             {
-                if (pizarra == null)
+                if(pizarra == null)
                 {
                     pizarra = tocarPizarra.transform.GetComponent<Pizarra>();
                 }
 
                 tocarPizarraPos = new Vector2(tocarPizarra.textureCoord.x, tocarPizarra.textureCoord.y);
 
-                int x = (int)(tocarPizarraPos.x * pizarra.textureSize.x - (tamañoPunta / 2));
-                int y = (int)(tocarPizarraPos.y * pizarra.textureSize.y - (tamañoPunta / 2));
+                int x = (int)(tocarPizarraPos.x * pizarra.textureSize.x - (tamañoPunta/2));
+                int y = (int)(tocarPizarraPos.y * pizarra.textureSize.y - (tamañoPunta/2));
 
                 if (y < 0 || y > pizarra.textureSize.y || x < 0 || x > pizarra.textureSize.x)
                     return;
