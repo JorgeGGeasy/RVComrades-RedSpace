@@ -19,6 +19,10 @@ public class Subtitulos : MonoBehaviour
         // Check if the name of the current Active Scene is your first Scene.
         if (scene.name == "Nave")
         {
+            if (textBox == null)
+            {
+                textBox = GameObject.FindGameObjectWithTag("Subtitulo").GetComponent<TMP_Text>();
+            }
             StartCoroutine(TheSequenceNave());
         }
     }

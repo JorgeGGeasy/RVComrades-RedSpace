@@ -265,7 +265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0508c3e7e77f0d948a163d1d57bd578e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textBox: {fileID: 0}
+  textBox: {fileID: 586647233}
   audioClipManager: {fileID: 0}
 --- !u!114 &20877370
 MonoBehaviour:
@@ -3111,6 +3111,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2455f180e32f67840886bd71dd6279ee, type: 3}
+--- !u!114 &586647233 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6769004139551461374, guid: 2455f180e32f67840886bd71dd6279ee, type: 3}
+  m_PrefabInstance: {fileID: 586647232}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &614681823
 PrefabInstance:
   m_ObjectHideFlags: 0
