@@ -1,15 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 public class Subtitulos : MonoBehaviour
 {
     public TMP_Text textBox;
+
+    [SerializeField]
+    private AudioClipManager audioClipManager;
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(TheSequenceNave());
+        // Return the current Active Scene in order to get the current Scene name.
+        Scene scene = SceneManager.GetActiveScene();
+
+        // Check if the name of the current Active Scene is your first Scene.
+        if (scene.name == "Nave")
+        {
+            if (textBox == null)
+            {
+                textBox = GameObject.FindGameObjectWithTag("Subtitulo").GetComponent<TMP_Text>();
+            }
+            StartCoroutine(TheSequenceNave());
+        }
     }
 
     public void IniciarSala()
@@ -25,6 +40,7 @@ public class Subtitulos : MonoBehaviour
     IEnumerator TheSequenceNave()
     {
         yield return new WaitForSeconds(1);
+        audioClipManager.SeleccionarAudio(7, 0.5f);
         textBox.text = "Maksim: Nos aproximamos a la luna";
         yield return new WaitForSeconds(5);
         textBox.text = "";
@@ -45,6 +61,7 @@ public class Subtitulos : MonoBehaviour
     IEnumerator TheSequenceSala()
     {
         yield return new WaitForSeconds(1);
+        audioClipManager.SeleccionarAudio(7, 0.5f);
         textBox.text = "Maksim: Maldita sea la puerta se ha cerrado";
         yield return new WaitForSeconds(5);
         textBox.text = "";
@@ -61,6 +78,7 @@ public class Subtitulos : MonoBehaviour
     IEnumerator TheSequenceTrampilla()
     {
         yield return new WaitForSeconds(1);
+        audioClipManager.SeleccionarAudio(7, 0.5f);
         textBox.text = "Maksim: Vale antes de salir hay";
         yield return new WaitForSeconds(5);
         textBox.text = "que solucionar unas cuantas cosas";
@@ -77,8 +95,6 @@ public class Subtitulos : MonoBehaviour
         yield return new WaitForSeconds(4);
         textBox.text = "";
     }
-
-
 
     IEnumerator TheSequenceDesacopleModuloLunar()
     {

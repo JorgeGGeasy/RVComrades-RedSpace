@@ -10,6 +10,10 @@ TagManager:
   - Patata
   - Luces
   - Linterna
+  - Bullet
+  - video
+  - Pizarra
+  - Subtitulo
   layers:
   - Default
   - TransparentFX

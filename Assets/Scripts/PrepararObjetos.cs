@@ -1,45 +1,69 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class PrepararObjetos : MonoBehaviour
+namespace Valve.VR.InteractionSystem
 {
-
-    [SerializeField]
-    GameObject[] objetosNecesarios;
-
-    int contador;
-
-    public bool objetos;
-    // Start is called before the first frame update
-    void Start()
+    public class PrepararObjetos : MonoBehaviour
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        [SerializeField]
+        GameObject[] objetosNecesarios;
+        [SerializeField]
+        private AudioClipManager audioClipManager;
 
-    void OnTriggerEnter(Collider c)
-    {
-        Debug.Log(objetosNecesarios.Length);
-        foreach(GameObject objetoNecesario in objetosNecesarios)
+        FinNivel finNivelScript;
+
+        int contador;
+
+        public bool objetos;
+
+
+        private PhotonView photonView;
+
+        // Start is called before the first frame update
+        void Start()
         {
-            if (c.gameObject == objetoNecesario && !objetos)
+            photonView = GetComponent<PhotonView>();
+            finNivelScript = FinNivel.Instance;
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
+
+        void OnTriggerEnter(Collider c)
+        {
+            Debug.Log(objetosNecesarios.Length);
+            int cont = 0;
+            foreach (GameObject objetoNecesario in objetosNecesarios)
             {
-                Debug.Log("Colision");
-                objetoNecesario.SetActive(false);
-                contador++;                
+                if (c.gameObject == objetoNecesario && !objetos)
+                {
+                    Debug.Log("Es");
+                    photonView.RPC("ponerObjetos", RpcTarget.All, cont);
+                }
+                cont++;
             }
+            if (contador == objetosNecesarios.Length)
+            {
+                finNivelScript.FinalizadoPuzlePrepararObjetos();
+                //objetos = true;
+            }
+
         }
 
-        if (contador == objetosNecesarios.Length)
+        [PunRPC]
+        private void ponerObjetos(int objetoNecesario)
         {
-            objetos = true;
-        }
+            Debug.Log("Entra");
+            objetosNecesarios[objetoNecesario].transform.position = new Vector3(999.0f, 999.0f, 999.0f);
+            audioClipManager.SeleccionarAudio(9, 1f);
+            contador++;
 
+        }
     }
 }
