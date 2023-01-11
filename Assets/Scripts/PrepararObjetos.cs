@@ -32,7 +32,7 @@ namespace Valve.VR.InteractionSystem
         // Update is called once per frame
         void Update()
         {
-            
+
         }
 
         void OnTriggerEnter(Collider c)
@@ -63,7 +63,7 @@ namespace Valve.VR.InteractionSystem
             objetosNecesarios[objetoNecesario].transform.position = new Vector3(999.0f, 999.0f, 999.0f);
             audioClipManager.SeleccionarAudio(9, 1f);
             contador++;
-            
+
         }
     }
 }
