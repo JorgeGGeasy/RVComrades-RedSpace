@@ -59,7 +59,7 @@ namespace Valve.VR.InteractionSystem
         private void colocarPatata(){
             Debug.Log("Patata");
             patataCaja.gameObject.SetActive(true);
-            hitColliderTemp.gameObject.SetActive(false);
+            hitColliderTemp.gameObject.transform.position = new Vector3(999.0f, 999.0f, 999.0f);
             finNivel.FinalizadoPuzlePatataColocada();
             patataColocada = true;
             StartCoroutine(AnimacionEncenderLuces());

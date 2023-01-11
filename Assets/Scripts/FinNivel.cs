@@ -10,7 +10,7 @@ namespace Valve.VR.InteractionSystem
     public class FinNivel : MonoBehaviour
     {
         [SerializeField]
-        GameObject teleport;
+        GameObject botonFinJuego;
 
         [SerializeField]
         ColocarPatata patata;
@@ -97,7 +97,8 @@ namespace Valve.VR.InteractionSystem
             }
             else
             {
-                teleport.SetActive(true);
+                audioClipManager.SeleccionarAudio(1, 0.5f);
+                botonFinJuego.SetActive(true);
             }
 
 

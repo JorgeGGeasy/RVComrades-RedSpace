@@ -36,12 +36,15 @@ namespace Valve.VR.InteractionSystem
         void OnTriggerEnter(Collider c)
         {
             Debug.Log(objetosNecesarios.Length);
+            int cont = 0;
             foreach (GameObject objetoNecesario in objetosNecesarios)
             {
                 if (c.gameObject == objetoNecesario && !objetos)
                 {
-                    photonView.RPC("PlayApagarLuces", RpcTarget.All, objetoNecesario);
+                    Debug.Log("Es");
+                    photonView.RPC("ponerObjetos", RpcTarget.All, cont);
                 }
+                cont++;
             }
             if (contador == objetosNecesarios.Length)
             {
@@ -52,10 +55,10 @@ namespace Valve.VR.InteractionSystem
         }
 
         [PunRPC]
-        private void ponerObjetos(GameObject objetoNecesario)
+        private void ponerObjetos(int objetoNecesario)
         {
-
-            objetoNecesario.transform.position = new Vector3(999.0f, 999.0f, 999.0f);
+            Debug.Log("Entra");
+            objetosNecesarios[objetoNecesario].transform.position = new Vector3(999.0f, 999.0f, 999.0f);
             contador++;
             
         }
