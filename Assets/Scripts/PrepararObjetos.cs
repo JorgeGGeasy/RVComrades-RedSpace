@@ -30,7 +30,7 @@ namespace Valve.VR.InteractionSystem
         // Update is called once per frame
         void Update()
         {
-            
+
         }
 
         void OnTriggerEnter(Collider c)
@@ -60,7 +60,7 @@ namespace Valve.VR.InteractionSystem
             Debug.Log("Entra");
             objetosNecesarios[objetoNecesario].transform.position = new Vector3(999.0f, 999.0f, 999.0f);
             contador++;
-            
+
         }
     }
 }

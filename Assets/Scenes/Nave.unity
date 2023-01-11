@@ -11397,6 +11397,8 @@ MonoBehaviour:
     sceneIndex: 1
   - Name: Menu
     sceneIndex: 0
+  - Name: Creditos
+    sceneIndex: 2
 --- !u!4 &1090025028
 Transform:
   m_ObjectHideFlags: 0
@@ -13424,7 +13426,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
