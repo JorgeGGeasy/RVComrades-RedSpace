@@ -17130,6 +17130,7 @@ MonoBehaviour:
   - {fileID: 1234903406}
   - {fileID: 143503591}
   - {fileID: 769672148}
+  audioClipManager: {fileID: 2060667607}
   objetos: 0
 --- !u!114 &1615501490
 MonoBehaviour:
@@ -21775,6 +21776,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4222200232d08f1428f3d5d460bb40e6, type: 3}
   - {fileID: 8300000, guid: 7fc441fe1e514ff45863f18e77c90a43, type: 3}
   - {fileID: 8300000, guid: f217b9c2997610f4ebd141a23a5e33ad, type: 3}
+  - {fileID: 8300000, guid: 28c82b9e2b9376d4cbc3465dd3a384b0, type: 3}
   controlAudio: {fileID: 2060667606}
 --- !u!4 &2060667608
 Transform:

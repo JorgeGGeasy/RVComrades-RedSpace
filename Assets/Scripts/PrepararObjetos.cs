@@ -10,6 +10,8 @@ namespace Valve.VR.InteractionSystem
 
         [SerializeField]
         GameObject[] objetosNecesarios;
+        [SerializeField]
+        private AudioClipManager audioClipManager;
 
         FinNivel finNivelScript;
 
@@ -59,6 +61,7 @@ namespace Valve.VR.InteractionSystem
         {
             Debug.Log("Entra");
             objetosNecesarios[objetoNecesario].transform.position = new Vector3(999.0f, 999.0f, 999.0f);
+            audioClipManager.SeleccionarAudio(9, 1f);
             contador++;
             
         }
