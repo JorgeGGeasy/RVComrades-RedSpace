@@ -43,7 +43,7 @@ public class PulsarMando : MonoBehaviour
     {
         if (videoPlayer.isPlaying)
         {
-            videoPlayer.Stop();
+            videoPlayer.Pause();
         }
         else
         {

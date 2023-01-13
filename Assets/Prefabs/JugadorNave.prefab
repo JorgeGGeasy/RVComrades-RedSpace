@@ -2823,6 +2823,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7050124719047622552}
     m_Modifications:
+    - target: {fileID: 4334510624341857554, guid: b4766bf0e529bf44ea7064149ef3539f, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4334510624341857556, guid: b4766bf0e529bf44ea7064149ef3539f, type: 3}
       propertyPath: m_TagString
       value: Subtitulo
